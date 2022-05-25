@@ -10,5 +10,6 @@ namespace UsersManager.DAL.Models
         public string Email { get; set; } = null!;
         public string Phone { get; set; } = null!;
         public float Estimate { get; set; }
+        public string Name { get; set; } = null!;
     }
 }
