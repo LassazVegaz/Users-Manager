@@ -1,12 +1,12 @@
-﻿using UsersManager.Core.Models;
+﻿using System.Linq.Expressions;
 using UsersManager.Core.Repositories;
 
 namespace UsersManager.DAL.Repositories;
 
-abstract class BaseRepository : IRepository<User>
+public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
 {
 
-    private readonly UsersManagerContext context;
+    protected readonly UsersManagerContext context;
 
 
     protected BaseRepository(UsersManagerContext context)
@@ -15,52 +15,43 @@ abstract class BaseRepository : IRepository<User>
     }
 
 
-    public User Create(User entity)
+    public TEntity Create(TEntity entity)
     {
-        var newUser = context.Users.Add(entity).Entity;
+        var newUser = context.Add(entity).Entity;
         context.SaveChanges();
         return newUser;
     }
 
     public void Delete(object id)
     {
-        var user = context.Users.Find(id);
+        var user = context.Find<TEntity>(id);
         if (user == null)
             throw new Exception($"User with ${id} is not found");
 
-        context.Users.Remove(user);
+        context.Remove(user);
         context.SaveChanges();
     }
 
-    public User? Get(object id)
+    public TEntity? Get(object id)
     {
-        return context.Users.Find(id);
+        return context.Find<TEntity>(id);
     }
 
-    public IQueryable<User> GetAll()
+    public IQueryable<TEntity> GetAll()
     {
-        return context.Users;
+        return context.Set<TEntity>();
     }
 
-    public IQueryable<User> Search(Func<User, bool> predicate)
+    public IQueryable<TEntity> Search(Expression<Func<TEntity, bool>> predicate)
     {
-        return context.Users.Where(predicate).AsQueryable();
+        return context.Set<TEntity>().Where(predicate);
     }
 
-    public User Update(object id, User entity)
+    public TEntity Update(TEntity entity)
     {
-        var user = context.Users.Find(id);
-        if (user == null)
-            throw new Exception($"User with ${id} is not found");
-
-        user.Address = entity.Address;
-        user.Name = entity.Name;
-        user.Estimate = entity.Estimate;
-        user.Email = entity.Email;
-        user.Phone = entity.Phone;
-
+        var updatedEntity = context.Update(entity);
         context.SaveChanges();
-
-        return user;
+        return updatedEntity.Entity;
     }
+
 }
