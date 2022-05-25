@@ -1,4 +1,7 @@
-﻿namespace UsersManager.DAL
+﻿using Microsoft.EntityFrameworkCore;
+using UsersManager.Core.Models;
+
+namespace UsersManager.DAL
 {
     public partial class UsersManagerContext : DbContext
     {

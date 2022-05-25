@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace UsersManager.DAL.Models
+﻿namespace UsersManager.Core.Models
 {
     public partial class User
     {
