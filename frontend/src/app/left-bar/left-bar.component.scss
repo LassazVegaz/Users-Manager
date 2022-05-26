@@ -1,0 +1,22 @@
+.main {
+  padding: 10px 20px 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  margin-top: 50px;
+}
