@@ -7,6 +7,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 import { LeftBarComponent } from './left-bar/left-bar.component';
 import { RightBarComponent } from './right-bar/right-bar.component';
@@ -20,6 +21,7 @@ import { RightBarComponent } from './right-bar/right-bar.component';
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
