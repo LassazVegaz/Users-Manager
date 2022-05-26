@@ -47,6 +47,7 @@ export class LeftBarComponent implements OnInit {
       }
 
       await this.usersService.addUser(user);
+      this.form.reset();
     } catch (error) {
       this.toast.error('Creating user failed');
     }

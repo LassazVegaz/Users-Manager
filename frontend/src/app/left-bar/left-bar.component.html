@@ -4,7 +4,11 @@
   <form [formGroup]="form" (submit)="onSubmit()">
     <mat-form-field>
       <input placeholder="Name" matInput type="text" formControlName="name" />
-      <mat-error *ngIf="form.get('name')?.getError('required')">
+      <mat-error
+        *ngIf="
+          form.get('name')?.touched && form.get('name')?.getError('required')
+        "
+      >
         Required
       </mat-error>
     </mat-form-field>
@@ -16,7 +20,12 @@
         type="text"
         formControlName="address"
       />
-      <mat-error *ngIf="form.get('address')?.getError('required')">
+      <mat-error
+        *ngIf="
+          form.get('address')?.touched &&
+          form.get('address')?.getError('required')
+        "
+      >
         Required
       </mat-error>
     </mat-form-field>
@@ -28,17 +37,23 @@
         type="email"
         formControlName="email"
       />
-      <mat-error *ngIf="form.get('email')?.getError('required')">
-        Required
-      </mat-error>
-      <mat-error *ngIf="form.get('email')?.getError('email')">
-        Invalid email
-      </mat-error>
+      <ng-container *ngIf="form.get('email')?.touched">
+        <mat-error *ngIf="form.get('email')?.getError('required')">
+          Required
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.getError('email')">
+          Invalid email
+        </mat-error>
+      </ng-container>
     </mat-form-field>
 
     <mat-form-field>
       <input placeholder="Phone" matInput type="tel" formControlName="phone" />
-      <mat-error *ngIf="form.get('phone')?.getError('required')">
+      <mat-error
+        *ngIf="
+          form.get('phone')?.touched && form.get('phone')?.getError('required')
+        "
+      >
         Required
       </mat-error>
     </mat-form-field>
@@ -50,12 +65,14 @@
         type="number"
         formControlName="estimate"
       />
-      <mat-error *ngIf="form.get('estimate')?.getError('required')">
-        Required
-      </mat-error>
-      <mat-error *ngIf="form.get('estimate')?.getError('min')">
-        Invalid estimation
-      </mat-error>
+      <ng-container *ngIf="form.get('estimate')?.touched">
+        <mat-error *ngIf="form.get('estimate')?.getError('required')">
+          Required
+        </mat-error>
+        <mat-error *ngIf="form.get('estimate')?.getError('min')">
+          Invalid estimation
+        </mat-error>
+      </ng-container>
     </mat-form-field>
 
     <button mat-raised-button type="submit">Save</button>
