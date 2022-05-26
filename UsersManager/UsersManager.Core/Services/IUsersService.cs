@@ -2,10 +2,10 @@
 
 namespace UsersManager.Core.Services;
 
-interface IUsersService
+public interface IUsersService
 {
     User[] GetAllUsers();
-    User[] FindUsersByName(string username);
+    User[] SearchUsersByName(string username);
     User CreateUser(User user);
     User UpdateUser(int id, User user);
     bool EmailExists(string email);
