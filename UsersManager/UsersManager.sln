@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersManager.BLL", "UsersMa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersManager.API", "UsersManager.API\UsersManager.API.csproj", "{AE4A5320-E0E5-4A41-B370-4CA20B18C3F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersManager.Core", "UsersManager.Core\UsersManager.Core.csproj", "{EFFA8438-A7A4-42E4-8CDD-20823216661F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersManager.Core", "UsersManager.Core\UsersManager.Core.csproj", "{EFFA8438-A7A4-42E4-8CDD-20823216661F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersManager.DALTests", "UsersManager.DALTests\UsersManager.DALTests.csproj", "{4119AC21-9EF6-465B-A838-4B48B3A0CCE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{EFFA8438-A7A4-42E4-8CDD-20823216661F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFFA8438-A7A4-42E4-8CDD-20823216661F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFFA8438-A7A4-42E4-8CDD-20823216661F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4119AC21-9EF6-465B-A838-4B48B3A0CCE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4119AC21-9EF6-465B-A838-4B48B3A0CCE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4119AC21-9EF6-465B-A838-4B48B3A0CCE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4119AC21-9EF6-465B-A838-4B48B3A0CCE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
