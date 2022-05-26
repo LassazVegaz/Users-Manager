@@ -1,5 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using UsersManager.BLL.Services;
+using UsersManager.Core.Repositories;
+using UsersManager.Core.Services;
 using UsersManager.DAL;
+using UsersManager.DAL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +21,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<UsersManagerContext>(o => o.UseMySql(
     configs.GetConnectionString("UsersManagerContext"),
     ServerVersion.Parse("8.0.29-mysql")));
+
+// add custom services and repos
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+builder.Services.AddScoped<IUsersService, UsersService>();
 
 var app = builder.Build();
 
