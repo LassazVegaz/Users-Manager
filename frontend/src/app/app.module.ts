@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LeftBarComponent } from './left-bar/left-bar.component';
 import { RightBarComponent } from './right-bar/right-bar.component';
 import { UsersService } from './services/users.service';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [AppComponent, LeftBarComponent, RightBarComponent],
@@ -25,6 +26,7 @@ import { UsersService } from './services/users.service';
     MatButtonModule,
     MatTableModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

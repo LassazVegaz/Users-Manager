@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.model';
 
-import * as endpoint from './api-endpoints.json';
+import endpoint from './api-endpoints.json';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,7 @@ export class UsersService {
         },
         error: (err) => {
           console.error(err);
-          reject();
+          reject(err);
         },
       });
     });
