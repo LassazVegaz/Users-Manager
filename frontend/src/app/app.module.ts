@@ -14,6 +14,7 @@ import { LeftBarComponent } from './left-bar/left-bar.component';
 import { RightBarComponent } from './right-bar/right-bar.component';
 import { UsersService } from './services/users.service';
 import { ToastrModule } from 'ngx-toastr';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LeftBarComponent, RightBarComponent],
@@ -27,6 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatTableModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

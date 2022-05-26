@@ -1,27 +1,63 @@
 <div class="main">
   <h1>Add Property</h1>
 
-  <form>
+  <form [formGroup]="form">
     <mat-form-field>
-      <input placeholder="Name" matInput type="text" />
+      <input placeholder="Name" matInput type="text" formControlName="name" />
+      <mat-error *ngIf="form.get('name')?.getError('required')">
+        Required
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input placeholder="Address" matInput type="text" />
+      <input
+        placeholder="Address"
+        matInput
+        type="text"
+        formControlName="address"
+      />
+      <mat-error *ngIf="form.get('address')?.getError('required')">
+        Required
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input placeholder="Email" matInput type="text" />
+      <input
+        placeholder="Email"
+        matInput
+        type="email"
+        formControlName="email"
+      />
+      <mat-error *ngIf="form.get('email')?.getError('required')">
+        Required
+      </mat-error>
+      <mat-error *ngIf="form.get('email')?.getError('email')">
+        Invalid email
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input placeholder="Phone" matInput type="text" />
+      <input placeholder="Phone" matInput type="tel" formControlName="phone" />
+      <mat-error *ngIf="form.get('phone')?.getError('required')">
+        Required
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input placeholder="Property Estimate" matInput type="text" />
+      <input
+        placeholder="Property Estimate"
+        matInput
+        type="number"
+        formControlName="estimate"
+      />
+      <mat-error *ngIf="form.get('estimate')?.getError('required')">
+        Required
+      </mat-error>
+      <mat-error *ngIf="form.get('estimate')?.getError('min')">
+        Invalid estimation
+      </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button>Save</button>
+    <button mat-raised-button type="submit">Save</button>
   </form>
 </div>
