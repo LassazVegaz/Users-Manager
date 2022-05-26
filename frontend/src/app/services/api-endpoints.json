@@ -1,0 +1,8 @@
+{
+  "users": {
+    "common": "users",
+    "search": "users/search/{text}",
+    "isEmailAvailable": "users/isEmailAvailable/{email}",
+    "isPhoneAvailable": "users/isPhoneAvailable/{phone}"
+  }
+}

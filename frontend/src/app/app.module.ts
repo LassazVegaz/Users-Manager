@@ -8,9 +8,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 import { LeftBarComponent } from './left-bar/left-bar.component';
 import { RightBarComponent } from './right-bar/right-bar.component';
+import { UsersService } from './services/users.service';
 
 @NgModule({
   declarations: [AppComponent, LeftBarComponent, RightBarComponent],
@@ -22,8 +24,9 @@ import { RightBarComponent } from './right-bar/right-bar.component';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
