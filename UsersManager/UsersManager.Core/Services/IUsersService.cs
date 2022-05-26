@@ -4,6 +4,7 @@ namespace UsersManager.Core.Services;
 
 public interface IUsersService
 {
+    bool UserExists(int id);
     User[] GetAllUsers();
     User[] SearchUsersByName(string username);
     User CreateUser(User user);

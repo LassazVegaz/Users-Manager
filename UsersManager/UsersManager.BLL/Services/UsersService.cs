@@ -48,4 +48,7 @@ public class UsersService : IUsersService
         return _usersRepo.Update(user);
     }
 
+
+    public bool UserExists(int id) => _usersRepo.Get(id) != null;
+
 }

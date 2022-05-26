@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using UsersManager.Core.Repositories;
 
 namespace UsersManager.DAL.Repositories;
@@ -34,17 +35,22 @@ public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEnti
 
     public TEntity? Get(object id)
     {
-        return context.Find<TEntity>(id);
+        var entity = context.Find<TEntity>(id);
+
+        if (entity != null)
+            context.Entry(entity).State = EntityState.Detached;
+
+        return entity;
     }
 
     public IQueryable<TEntity> GetAll()
     {
-        return context.Set<TEntity>();
+        return context.Set<TEntity>().AsNoTracking();
     }
 
     public IQueryable<TEntity> Search(Expression<Func<TEntity, bool>> predicate)
     {
-        return context.Set<TEntity>().Where(predicate);
+        return context.Set<TEntity>().Where(predicate).AsNoTracking();
     }
 
     public TEntity Update(TEntity entity)
