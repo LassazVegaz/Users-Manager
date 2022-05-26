@@ -39,7 +39,7 @@ export class UsersService {
     return new Promise<void>((resolve, reject) => {
       this.http.post<User>(url, user).subscribe({
         next: (value) => {
-          this._users.push(value);
+          this._users = [...this._users, value];
           resolve();
         },
         error: (err) => {

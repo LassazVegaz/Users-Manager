@@ -1,7 +1,7 @@
 <div class="main">
   <h1>Add Property</h1>
 
-  <form [formGroup]="form">
+  <form [formGroup]="form" (submit)="onSubmit()">
     <mat-form-field>
       <input placeholder="Name" matInput type="text" formControlName="name" />
       <mat-error *ngIf="form.get('name')?.getError('required')">

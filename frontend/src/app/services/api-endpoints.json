@@ -1,7 +1,7 @@
 {
   "users": {
     "common": "users",
-    "isEmailAvailable": "users/isEmailAvailable/{email}",
-    "isPhoneAvailable": "users/isPhoneAvailable/{phone}"
+    "isEmailAvailable": "users/isEmailAvailable",
+    "isPhoneAvailable": "users/isPhoneAvailable"
   }
 }
