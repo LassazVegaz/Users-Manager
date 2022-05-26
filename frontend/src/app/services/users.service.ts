@@ -32,4 +32,53 @@ export class UsersService {
       });
     });
   }
+
+  addUser(user: User): Promise<void> {
+    const url = `${environment.apiUrl}/${endpoint.users.common}`;
+
+    return new Promise<void>((resolve, reject) => {
+      this.http.post<User>(url, user).subscribe({
+        next: (value) => {
+          this._users.push(value);
+          resolve();
+        },
+        error: (err) => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
+  }
+
+  isEmailAvailable(email: string): Promise<boolean> {
+    const url = `${environment.apiUrl}/${endpoint.users.isEmailAvailable}/${email}`;
+
+    return new Promise<boolean>((resolve, reject) => {
+      this.http.get<boolean>(url).subscribe({
+        next: (value) => {
+          resolve(value);
+        },
+        error: (err) => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
+  }
+
+  isPhoneAvailable(phone: string): Promise<boolean> {
+    const url = `${environment.apiUrl}/${endpoint.users.isPhoneAvailable}/${phone}`;
+
+    return new Promise<boolean>((resolve, reject) => {
+      this.http.get<boolean>(url).subscribe({
+        next: (value) => {
+          resolve(value);
+        },
+        error: (err) => {
+          console.error(err);
+          reject(err);
+        },
+      });
+    });
+  }
 }
